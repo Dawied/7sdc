@@ -1,8 +1,9 @@
 /*
  * Todo:
- * dim at night
+ * 
  * more color effects, soft glow
- * make updateTime periodic
+ * done make updateTime periodic
+ * done dim at night
  * done button for color change and effects
  * done mode for starting wifimanager
  * done mode for time set
@@ -84,7 +85,6 @@ unsigned long updateTimeInterval = 2000;
 #define PIN_LEDSTRIP D1                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
 
 Adafruit_NeoPixel ledStrip(NUMLEDS, PIN_LEDSTRIP, NEO_GRB + NEO_KHZ800);
-//Adafruit_NeoPixel testStrip(1, D3, NEO_GRB + NEO_KHZ800);
 
 struct Display {
   int ledOffset;
@@ -231,14 +231,6 @@ void setupLeds() {
   ledStrip.begin();
   ledStrip.clear();
   ledStrip.show();
-
-  /*
-  testStrip.setBrightness(brightness);
-  testStrip.begin();
-  testStrip.clear();
-  testStrip.setPixelColor(0, hexColorToInt("#FF0000"));
-  testStrip.show();
-  */
 }
 
 void setDisplay() {
@@ -493,7 +485,6 @@ static void handleModeBtnClick() {
   }
 }
 
-
 /**
  * @brief handle a double click on the mode button
  *
@@ -528,7 +519,6 @@ static void handleFxBtnClick() {
     displayColor = hexColorToInt("#FF0000");
   }
 }
-
 
 /**
  * @brief handle a double click on the fx button
@@ -669,7 +659,6 @@ uint32_t hexColorToInt(String hexColor) {
 }
 
 void printTime() {
-
   DEBUG_PRINT("year:");
   DEBUG_PRINT(tms.tm_year + 1900);  // years since 1900
   DEBUG_PRINT("\tmonth:");
